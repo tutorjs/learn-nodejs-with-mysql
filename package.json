@@ -1,0 +1,19 @@
+{
+  "name": "learn-nodejs-with-mysql",
+  "version": "0.1.0",
+  "description": "Learn NodeJS With MySQL",
+  "main": "index.js",
+  "repository": "https://github.com/tutorjs/learn-nodejs-with-mysql.git",
+  "author": "adiatma <adiatma9024@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.20.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
