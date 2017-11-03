@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= head %> | todos </title>
+</head>
+<body>
+  <div class="container">
+    <a href="/todos/create">Add Todo</a>
+    <ul>
+      <% todos.forEach(function(todo) { %>
+        <li>
+          <%= todo.name %>
+          <button class="btn--delete" data-id=<%= todo.id %>>Hapus</button>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+  <script>
+    
+    function deleteTodo(id) {
+      return fetch('/todos/' + id + '/delete', {
+        method: 'delete'
+      });
+    }
+
+    var buttonsDelete = document.querySelectorAll('.btn--delete');
+
+    buttonsDelete.forEach(function(button) {
+      button.addEventListener('click', function() {
+        var confirmed = confirm('Apakah anda yakin menghapus?');
+        
+        if(!confirmed) {
+          return;
+        }
+
+        var buttonId = button.getAttribute('data-id');
+
+        deleteTodo(buttonId)
+          .then(function () {
+            window.location.reload();
+          })
+          .catch(function() {
+            alert('Gagal hapus data!')
+          })
+      });
+    });
+
+
+  </script>  
+</body>
+</html>
